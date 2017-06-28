@@ -2,28 +2,53 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Request;
+use Hash;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable;
+    public function signup()
+    {
+        //1.檢查用戶名和密碼是否爲空
+	//2.檢查用戶名是否存在
+	//3.加密密碼
+	//4.存入數據庫
+        //dd(Request::all());// return 'signup';
+    	$username = Request::get('username');
+	$password = Request::get('password');
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	if(!$username && !$password){
+	 // return 'sss';
+	   return ['status'=>0 , 'msg'=>'用戶名或者密碼爲空']; 
+	//return ['status'=>0,'msg'=''];
+	}
+      	
+	$user_exists = $this
+	  ->where('name',$username) 
+	  ->exists();
+	
+	if($user_exists)
+	{
+	   return ['status'=>0,'msg'=>'用戶名已經存在'];
+	}
+   	 
+	$hashed_password = bcrypt($password);
+	
+	//dd($hashed_password);	
+    	$user = $this;
+	$user->password = $hashed_password;
+	$user->name = $username;
+	if($user->save())
+	{
+	    return ['statu'=>1,'id'=>$user->id];
+	}
+	//return '1w';
+    }
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    //
+    public function login(){
+	return 'login';
+    }
 }
+
