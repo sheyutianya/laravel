@@ -34,7 +34,24 @@
 
 <script type="text/ng-template" id="home.tpl">
 <div class="home container">
-首頁。。。。。。。。。。。。。。。。。。啥
+    <h1>最新動態</h1>
+    <div class="hr"></div>
+    <div class="item-set">
+        <div class="item">
+            <div class="vote"></div>
+            <div class="item-content">
+                <div class="content-act">x點在回答</div>
+                <div class="title">那個瞬間讓你感覺讀書真的有用</div>
+                <div class="content-owner">作者</div>
+                <div class="content-main">
+                    最新消息顯示圖蘭特和勇士的合同不會續約
+                </div>
+            </div>
+            <div class="content-ation">
+                <div class="coment">評論</div>
+            </div>
+        </div>
+    </div>
 </div>
 </script>
 
@@ -45,9 +62,34 @@
 </script>
 
 <script type="text/ng-template" id="signup.tpl">
-<div class="signup container">
-注冊。。。。。。。。。。。。
-</div>
+<div ng-controller="SignupController" class="signup container">
+	<div class="card">
+		<h1>注冊</h1>
+		[: User.signup_data :]
+		<form name="signup_form" ng-submit="User.signup()">
+			<div>
+				<label>用戶名：</label>
+                <input name="username"
+                type="text"
+                ng-minlength="4"
+                ng-maxlength="24"
+                ng-model="User.signup_data.username"/>
+			</div>
+			<div>
+				<label>密碼：</label>
+                <input name="password"
+                type="password"
+                ng-minlength="6"
+                ng-maxlength="255"
+                ng-model="User.signup_data.password"/>
+			</div>
+            <button
+            type="submit"
+            ng-disabled="signup_form.$invalid"
+            >注冊</button>
+		</form>
+	</div>
+    </div>
 </script>
 
 </html>
