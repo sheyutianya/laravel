@@ -40,20 +40,35 @@
 	});
 
 	angularapp.service('UserService',[
-        '$http',
-	    function($http){
+        '$state',
+		'$http',
+	    function($state,$http){
 		    var me = this;
 		    me.signup_data = {};
 		    me.signup = function(){
-                console.log('login ok');
-            }
+				$http.post('api/signup', me.signup_data)
+				.then(function(r){
+					me.singnup_data = {};
+					$state.go('login');
+				},function(e){
+					
+				})
+            };
             me.username_exist = function(){
                 $http.post('/api/exists',
-                    {username:me.signup_data.username})
+                    {name:me.signup_data.username})
                 .then(function(r)
                      {
-                        console.log('exists return suc');0
-                        console.log(r);
+						console.log('r',r);
+						if(r.data.status && r.data.data.count)
+						{
+							me.sigup_username_exists = true;
+							console.log(1);
+						}else
+						{
+							me.sigup_username_exists = false;
+							console.log(2);
+						}
                      },
                      function(e)
                      {

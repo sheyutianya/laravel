@@ -34,10 +34,9 @@ function user_ins(){
 
 Route::get('/', function () {
     return view('index');
-   // return ['version'=>'1.0'];
 });
 
-Route::get('api/signup',function(){
+Route::any('api/signup',function(){
     $user = new App\User;
     return $user->signup();
 });

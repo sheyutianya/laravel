@@ -96,6 +96,7 @@ class User extends Model
     }
 
     public function exist(){
+		//return ['status'=>0 , 'msg'=>'nihao'];
         return $this->suc_res(['count' => $this->where(rq())->count()]);
     }
 

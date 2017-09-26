@@ -1,0 +1,37 @@
+angular-ui-router 多视图views http://blog.csdn.net/ligang2585116/article/details/50380343
+
+UI Router 中有三种方式激活一个路由： 
+（1）$state.go()：优先级较高的便利方式 
+（2）ui-sref：点击包含此指令跳转 
+（3）url：url导航
+
+$state.go(to [, toParams] [, options]) 
+<a ui-sref="home">Home</a>
+
+$stateProvider
+    .state('contacts', {
+        url: "/contacts",
+        templateUrl: 'contacts.html'
+    })
+
+angular 基础概念要
+定义一个 AngularJS 应用，我们先得定义一个 AngularJS 模块（angular.module）。
+所谓 AngularJS 模块，其实就是一系列函数的集合，当应用被启动时，这些函数就会被执行
+var app = angular.module('myApp', []); 
+要在页面上实例化我们的myApp模块，并告诉 AngularJS，我们的应用运行在DOM结构的哪一部分。
+在页面上实例化一个模块，我们使用 ng-app 这个指令，它的存在告诉 AngularJS，我们的模块拥有那一部分的 DOM 结构
+<html ng-app="myApp">
+
+Scope
+Scopes 是一个把 view 连接到 controller 上的对象。
+$scope 实际上就是一个 JavaScript 对象，controller 和 view 都可以访问它，所以我们可以利用它在两者间传递信息。
+在这个 $scope 对象里，我们既存储数据，又存储将要运行在 view 上的函数
+
+ng-controller
+要明确创建一个 $scope 对象, 我们就要给 DOM 元素按上一个 controller 对象使用的是 ng-controller 指令属性
+数据绑定 ng-model = ""
+对按钮、链接或任何其他的 DOM 元素，我们都可以用另一个指令属性来实现绑定：ng-click 。
+这个 ng-click 指令将DOM元素的鼠标点击事件（即 mousedown 浏览器事件）绑定到一个方法上，当浏览器在该DOM元素上鼠标触发点击事件时，此被绑定的方法就被调用
+指令和表达式
+
+
