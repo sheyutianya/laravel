@@ -29,9 +29,17 @@ $scope 实际上就是一个 JavaScript 对象，controller 和 view 都可以�
 
 ng-controller
 要明确创建一个 $scope 对象, 我们就要给 DOM 元素按上一个 controller 对象使用的是 ng-controller 指令属性
-数据绑定 ng-model = ""
+
+ng-model = ""
+数据绑定 
+
+ng-submit
+ng-submit 指令用于在表单提交后执行指定函数。
+
+ng-click
 对按钮、链接或任何其他的 DOM 元素，我们都可以用另一个指令属性来实现绑定：ng-click 。
-这个 ng-click 指令将DOM元素的鼠标点击事件（即 mousedown 浏览器事件）绑定到一个方法上，当浏览器在该DOM元素上鼠标触发点击事件时，此被绑定的方法就被调用
+这个 ng-click 指令将DOM元素的鼠标点击事件(即 mousedown 浏览器事件)绑定到一个方法上，当浏览器在该DOM元素上鼠标触发点击事件时，此被绑定的方法就被调用
+
 指令和表达式
 
 
