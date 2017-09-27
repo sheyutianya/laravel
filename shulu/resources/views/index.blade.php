@@ -56,7 +56,7 @@
 </script>
 
 <script type="text/ng-template" id="login.tpl">
-<div class="login container">
+<div ng-controller="LoginController" class="login container">
 登录。。。。。
 </div>
 </script>

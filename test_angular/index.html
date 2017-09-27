@@ -1,12 +1,14 @@
 <!doctype html> 
-<html ng-app> 
+<html ng-app="myApp"> 
   <head> 
-    <script src="node_modules/angular/angular.js">"></script> 
+    <script src="node_modules/angular/angular.js"></script> 
+	<script src="js/main.js"></script> 
   </head> 
   <body> 
     <div> 
       <input type="text" ng-model="yourName" placeholder="Enter a name here"> 
-      <h1>Hello, {{ yourName }}!</h1> 
+      <h1>Hello, {{ yourName }}!{{name}}</h1> 
+	  <h2 ng-controller="myController">{{person}}</h2>
     </div> 
   </body> 
 </html> 

@@ -8,17 +8,17 @@ use Hash;
 
 class User extends Model
 {
-    function suc_res($data = null){
+/*     function suc_res($data = null){
         return ['status' => 1 , 'data' => $data];
     }
 
     function err($data = null){
         return ['status' => 0 , 'data' => $data];
-    }
+    } */
 
-    function test_func(){
+/*     function test_func(){
         dd('ssssss');
-    }
+    } */
 
     public function signup()
     {
@@ -77,7 +77,6 @@ class User extends Model
 
         session()->put('username',$user->name);
         session()->put('user_id',$user->id);
-//        dd(session()->all());
         return $this->suc_res(['id' => $user->id]);
     }
 

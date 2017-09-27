@@ -1,0 +1,14 @@
+CSS 指层叠样式表
+语法：选择器加一个或多个声明
+
+选择器 
+标签 class id 都可以作为选择器定位 HTML 元素
+#9527 id 选择器 .center 类选择器 h1 标签选择器 [title] 属性选择器
+
+CSS 标准提供 4 种布局方式：标准文档流，浮动布局，定位布局，flex 布局。
+http://blog.csdn.net/magneto7/article/details/70854472
+父容器 justify-content: align-items 子容器 flex align-self 
+
+flex 属性用于设置或检索弹性盒模型对象的子元素如何分配空间
+
+flex box 属性 

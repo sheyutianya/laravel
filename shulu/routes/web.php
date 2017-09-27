@@ -32,7 +32,7 @@ function user_ins(){
     return new 	App\User;
 }
 
-Route::get('/', function () {
+Route::any('/', function () {
     return view('index');
 });
 
@@ -41,7 +41,7 @@ Route::any('api/signup',function(){
     return $user->signup();
 });
 
-Route::get('api/login',function(){
+Route::any('api/login',function(){
     return user_ins()->login();
 });
 
