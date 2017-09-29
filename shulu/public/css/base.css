@@ -108,7 +108,8 @@ form,label{
 }
 .container.signup,
 .container.login,
-.container.reset-password
+.container.reset-password,
+.container.question
 {
     width:400px;
 }

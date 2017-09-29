@@ -29,10 +29,25 @@
             url: '/signup',
             templateUrl: 'signup.tpl'
         }
+        
+        var questionstate = {
+            abstract: true,
+            name: 'question',
+            url: '/question',
+            template: '<div ui-view></div>'
+        }
+        
+        var questionaddstate = {
+            name: 'question.add',
+            url: '/add',
+            templateUrl: 'question.add.tpl'
+        }
 
         $stateProvider.state(homestate)
         $stateProvider.state(loginstate)
         $stateProvider.state(signupstate)
+        $stateProvider.state(questionstate)
+        $stateProvider.state(questionaddstate)
     });
 
     angularapp.service('UserService', [
@@ -95,4 +110,61 @@
             $scope.User = UserService
         }
     ])
+    
+    angularapp.service('QuestionService',[
+        '$state',
+        '$http',
+        function($state,$http){
+            var me = $this
+            me.go_add_question = function(){
+                $state.go('question.add')
+            }
+            me.new_question ={}
+            me.add() = function(){
+                $http.post('api/question/add',me.new_question)
+                    .then(function(r){
+                        if(r.data.status){
+                            me.new_question = {}
+                            $state.go('home')
+                        }
+                    },function(e){
+                        
+                    })
+            }
+    }])
+    
+    angularapp.conroller('QuestionAddController', [
+        '$scope',
+        'QuestionService',
+        function($scope,QuestionService){
+            $scope.Question = QuestionService
+        }
+    ])
 })()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

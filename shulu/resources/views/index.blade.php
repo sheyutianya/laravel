@@ -17,14 +17,25 @@
     <div class="navbar clearfix">
         <div class="fl">
             <div class="navbar-item brand">哈问</div>
-            <div class="navbar-item">
-                <input type="text"></input>
-            </div>
+            <form ng-controller="QuestionAddController" name="quick_ask" ng-submit="Question.go_add_question()">
+                <div class="navbar-item">
+                    <input type="text"
+                    ng-model="Question.new_question.title"
+                    ></input>
+                    </div>
+                <div class="navbar-item">
+                    <button type="submit">提问</button>
+                </div>
+            </form>
         </div>
         <div class="fr">
             <a ui-sref="home" class="navbar-item">首页</a>
+            @if(is_login_in())
+            <a ui-sref="login" class="navbar-item">{{session('username')}}</a>
+            @else
             <a ui-sref="login" class="navbar-item">登录</a>
             <a ui-sref="signup" class="navbar-item">注册</a>
+            @endif
         </div>
     </div>
     <div class="page">
@@ -147,4 +158,69 @@
     </div>
 </script>
 
+<script type="text/ng-template" id="question.add.tpl">
+    <div ng-controller="QuestionAddController" class="question-add container">
+        <div class="card">
+            <from name="question_add_form" submit="Question.add()">
+                <div>
+                    <label>title</label>
+                    <input name="title"
+                    type="text"
+                    ng-model="Question.new_question.title"
+                    required
+                    />
+                    <label>desc</label>
+                    <textarea name="desc"
+                    type="text"
+                    ng-model="Question.new_question.desc"
+                    />
+                    <button
+                    type="submit"
+                    ng-disabled="question_add_form.$invalid"
+                    >submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
