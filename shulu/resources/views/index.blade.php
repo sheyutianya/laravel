@@ -45,21 +45,29 @@
 
 <script type="text/ng-template" id="home.tpl">
 <div class="home container">
-    <h1>最新功能</h1>
+    <h1>xx</h1>
     <div class="hr"></div>
     <div class="item-set">
         <div class="item">
             <div class="vote"></div>
             <div class="item-content">
-                <div class="content-act">x點在回答</div>
-                <div class="title">那个瞬间让你感觉读书真的有用</div>
-                <div class="content-owner">作者</div>
+                <div class="content-act">xxx</div>
+                <div class="title">xxx</div>
+                <div class="content-owner">xx</div>
                 <div class="content-main">
-                    最新消息
+                    xx
                 </div>
             </div>
             <div class="content-ation">
-                <div class="coment">评论</div>
+                <div class="coment">xx</div>
+            </div>
+            <div class="comment-block">
+                <div class="coment-item-set">
+                    <div class="coment-item">
+                        <div class="user"></div>
+                        <div class="coment-content"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
